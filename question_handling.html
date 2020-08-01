@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <meta charset = "UTF=8">
+        <meta name = "viewport" content="width=device-width, initial-scale=2.0">
+        <style>
+            h1 {text-align: center; }
+            h2 {text-align: left; }
+            h3 {text-align: right; }
+            p {text-align: center; }
+
+        </style>
+         <h1>Options</h1>
+    </head>
+
+    <body>
+        <div class="choice">
+        <form id="in">
+            <h2> Do you want to create a new series of questions? </h2>
+            <input type="yes" name="yes" > Yes
+            <input type="no" name="no" > No
+            <button onclick="selectCreate()">Submit</button>
+
+            <h2> Do you want to insert a new question? </h2>
+            <input type="yes" name="yes" > Yes
+            <input type="no" name="no" > No
+            <button onclick="selectInsert(yes.yes)">Submit</button>
+
+            <h2> Do you want to remove a new question? </h2>
+            <input type="yes" name="yes" > Yes
+            <input type="no" name="no" > No
+            <button onclick="selectRemove()">Submit</button>
+
+            <h2> Do you want to sort the questions? </h2>
+            <input type="yes" name="yes" > Yes
+            <input type="no" name="no" > No
+            <button onclick="selectSort()">Submit</button>
+
+            <h2> If you want to change the name of the questions, what would it be? </h2>
+            <label for = "title">New Title:</label>
+            <input type="text" id="title" name="title"><br><br>
+            <button onclick="changeTitle(document.getElementsByName('title'))">Change</button>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+
+            <button onclick="location.href='login.html'" type="button">Go Back</button> 
+
+
+            <h2> Start Quiz </h2>
+            <button onclick="location.href='questions_answer_form.html'" type="button">Click Here to Start Quiz</button> 
+
+        </form>
+        </div> 
+    </body>
+
+    <script src="questions_database.js">
+        var new_questions;
+        var selectCreate = function() {
+            new_questions = Question_Database("no name");
+            new_questions.created = true;
+        };
+
+        var selectInsert = function(response) {
+            if (response == "yes") {
+                new_questions.insert_question(response);
+            }
+        };
+
+        var selectRemove = function(response) {
+            if (response == "yes") {
+                new_questions.delete_question(response);
+            }
+        };
+
+        var selectSort = function(response) {
+            if (response == "yes") {
+                new_questions.sort_question();
+            }
+        }
+
+        var changeTitle = function(title) {
+            if (title != "") {
+                new_questions.set_title(title);
+            }
+        }
+    </script>
+</html>

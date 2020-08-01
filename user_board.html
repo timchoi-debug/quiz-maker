@@ -1,0 +1,41 @@
+<!DOCTYPE html>>
+<html>
+    <head>
+        <meta charset = "UTF=8">
+        <meta name = "viewport" content="width=device-width, initial-scale=2.0">
+         <label>User Account</label>
+    </head>
+
+    <body>
+        <span class="psw">Please click this <a href="/user/local/apache2/cgi-bin/user.cgi">link to view your Account</a></span> 
+        <div class UserAccount>
+            <form action  = "user_change.js" method = "get"> 
+                <label for = "uname">New Username:</label>
+                <input type="text" id="uname" name="uname"><br><br>
+                <label for = "pwd">New password:</label>
+                <input type="text" id="pwd" name="pwd"><br><br>
+
+                <input type="button" value="Change" name="Submit" onclick="verify_two()">
+            </form>
+        </div>
+    </body>
+
+    <script language="javascript" src="login.js" src="user.js">
+    </script>
+    <script>
+         function verify_two() {
+            var new_acct = acct;
+             if (new_acct.valid_username(form.uname.value) && new_acct.valid_password(form.password.value)) {
+                 new_acct.set_username(form.uname.value);
+                 new_acct.set_password(form.password.value);
+                 alert("Username and Password changed");
+                 window.open("question_handling.html");
+             }
+             else {
+                 alert("Invalid Username or Password");
+             }
+         }
+     </script>
+</html>
+
+
