@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "UTF=8">
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <label>Login</label>
+
+    <body style = "background-color:red;">
+        <div class = "Login">
+        <form name = "login">
+
+            <label><b>Username</b></label> 
+             <input type = "text", name = "Uname" required> <br />
+    
+            <label><b>Password</b></label> 
+             <input type = "text", name = "Password" required />
+    
+            <label> 
+                <input type = "checkbox" checked = "checked" name = "remember"> Remember me </input>
+            </label>
+        </form>
+      </div>
+
+      <input type="button" value="Sign in" name="Submit" onClick="verify(this.form)" />
+    
+      <div class = "Login"> 
+          <span class="psw">Forgot <a href="user_board.html">password?</a></span>  
+      </div>
+
+
+    </body>
+
+    <script language = "javascript" src="login.js">
+    </script>
+    <script>
+      function verify(form) {
+          module.exports = login;
+          var log = new login();
+          var newUser = new User(log);
+          if ((document.getElementsByName('Uname').innerHTML != "" &&  document.getElementsByName('Uname').innerHTML != "")) 
+          {
+              if (newUser.get_first_time()) {
+                  newUser.set_username(form.Uname.value);
+                  newUser.set_password(form.Password.value);
+                  newUser.set_first_time(false);
+              }
+              newUser.set_logged(true);
+            
+              window.open('question_handling.html');
+          }
+          else {
+              alert("Incorrect Username or Password");
+          }
+      }
+  </script>
+
+</head>
+</html>
+
+
+
+
+
